@@ -15,7 +15,7 @@ namespace AbsenceWebApp.Statistics
           return  targetAbsence.Where(x => x.Date.Month == monthNumber && x.TypeName==TypeName.A.ToString()).Count();
         }
 
-        public int GetcContinuousAbsencForRangeOfDays(int monthNumber, List<Absence> targetAbsence)
+        public int GetContinuousAbsenceForRangeOfDays(int monthNumber, List<Absence> targetAbsence)
         {
 
             var absencesgroupbyList = targetAbsence.Where(x => x.Date.Month == monthNumber).OrderBy(x=>x.Date).GroupBy(x=>x.EmployeeId);
@@ -66,7 +66,7 @@ namespace AbsenceWebApp.Statistics
 
         public List<int> GetMonthStatisticBasedOnPrecentage(int monthNumber, List<Absence> targetAbsence)
         {
-            return targetAbsence.Where(x => x.Date.Month == monthNumber && x.Percentage>=0.85).Select(x=>x.EmployeeId).ToList();
+            return targetAbsence.Where(x => x.Date.Month == monthNumber && x.Percentage>=0.85).Select(x=>x.EmployeeId).GroupBy(x=>x).Select(x=>x.First()).ToList();
         }
     }
 }

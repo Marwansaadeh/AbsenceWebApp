@@ -11,7 +11,7 @@ namespace AbsenceWebApp.Statistics
         List<int> GetMonthStatisticBasedOnPrecentage(int monthNumber, List<Absence> targetAbsence);
         int GetAbsenceNumbersWithTypeA (int monthNumber, List<Absence> targetAbsence);
 
-        int GetcContinuousAbsencForRangeOfDays(int monthNumber, List<Absence> targetAbsence);
+        int GetContinuousAbsenceForRangeOfDays(int monthNumber, List<Absence> targetAbsence);
 
     }
 }

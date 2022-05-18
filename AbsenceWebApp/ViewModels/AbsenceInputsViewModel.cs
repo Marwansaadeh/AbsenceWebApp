@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using AbsenceWebApp.Models;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -17,5 +18,6 @@ namespace AbsenceWebApp.ViewModels
 
         [Required]
         public IFormFile StartData { get; set; }
+
     }
 }

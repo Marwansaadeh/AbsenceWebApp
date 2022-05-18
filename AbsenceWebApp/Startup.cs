@@ -1,4 +1,5 @@
 using AbsenceAppData.Models;
+using AbsenceWebApp.FileImporter;
 using AbsenceWebApp.FileReader;
 using AbsenceWebApp.Helper;
 using AbsenceWebApp.Statistics;
@@ -36,6 +37,7 @@ namespace AbsenceWebApp
             services.AddTransient<IFileWebHandler, FileWebHandler>();
             services.AddTransient<IAbsenceReportHandler, AbsenceReportHandler>();
             services.AddTransient<IStatisticManager, StatisticManager>();
+
 
         }
 
