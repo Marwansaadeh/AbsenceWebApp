@@ -45,6 +45,9 @@ namespace AbsenceWebApp.Helper
 
                 List<Absence> UpdatedNewEmployeesFromFileB = this.GetUpdatedNewEmployee(this.AbsencesB);
                 this.UpdateStartFile(UpdatedNewEmployeesFromFileB);
+
+                this.StartData.Where(typeName => typeName.TypeName == "1").ToList().ForEach(typeName => typeName.TypeName = TypeName.A.ToString());
+                this.StartData.Where(typeName => typeName.TypeName == "2" || typeName.TypeName == "3").ToList().ForEach(typeName => typeName.TypeName = TypeName.B.ToString());
                 return this.StartData;
 
             }
@@ -54,6 +57,7 @@ namespace AbsenceWebApp.Helper
                 this.UpdateStartFile(UpdatedNewEmployeesFromFileB);
                 List<Absence> UpdatedNewEmployeesFromFileA = this.GetUpdatedNewEmployee(this.AbsencesA);
                 this.UpdateStartFile(UpdatedNewEmployeesFromFileA);
+
                 this.StartData.Where(typeName => typeName.TypeName == "1").ToList().ForEach(typeName => typeName.TypeName = TypeName.A.ToString());
                 this.StartData.Where(typeName => typeName.TypeName == "2"|| typeName.TypeName=="3").ToList().ForEach(typeName => typeName.TypeName = TypeName.B.ToString());
 
@@ -63,14 +67,7 @@ namespace AbsenceWebApp.Helper
 
 
         }
-   
-       
 
-        enum TypeName
-        {
-            A,
-            B
-        }
         private List<Absence> GetUpdatedNewEmployee(List<Absence> absences)
         {
             List<Absence> UpdatedNewEmployee = absences.Where(elA => !this.StartData.Any(StartDataItem => StartDataItem.Percentage == elA.Percentage
