@@ -21,7 +21,7 @@ namespace AbsenceWebApp.FileReader
             foreach (XmlNode Absence in Absencesnodes)
             {
                 string id = Absence.Attributes.GetNamedItem("EmployeeId").Value;
-
+                Guid guId = Guid.NewGuid();
                 var startDate = new DateTime();
                 var endDate = new DateTime();
                 double precentage = 0;
@@ -52,6 +52,7 @@ namespace AbsenceWebApp.FileReader
                     while (startDate <= endDate && typeName != 0 && precentage != 0)
                     {
                         var EmployeeAbsence = new Absence();
+                        EmployeeAbsence.Id = guId;
                         EmployeeAbsence.EmployeeId = Convert.ToInt32(id);
                         EmployeeAbsence.Date = startDate;
                         EmployeeAbsence.TypeName = typeName.ToString();

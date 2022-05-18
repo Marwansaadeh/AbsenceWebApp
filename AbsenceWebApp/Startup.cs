@@ -1,5 +1,6 @@
 using AbsenceAppData.Models;
 using AbsenceWebApp.FileReader;
+using AbsenceWebApp.Helper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -31,7 +32,8 @@ namespace AbsenceWebApp
                    options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddTransient<IXmlFileReader, XmlFileReader>();
             services.AddTransient<IExcelFileReader, ExcelFileReader>();
-
+            services.AddTransient<IFileWebHandler, FileWebHandler>();
+            services.AddTransient<IAbsenceReportHandler, AbsenceReportHandler>();
 
         }
 
