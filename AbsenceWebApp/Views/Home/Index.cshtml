@@ -1,8 +1,48 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
+@model AbsenceWebApp.ViewModels.AbsenceInputsViewModel
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<h1 class="display-4">Welcome to absence web application</h1>
+<form method="post" enctype="multipart/form-data" asp-controller="Home" asp-action="Index" class="mt-3">
+
+    <p>Upload one or more files using this form:</p>
+    <div class="form-group row">
+        <div class="col-md-10">
+            <label asp-for="FileA" class="col-sm-2 co-form-label"></label>
+            <div class="col-md-10">
+                <input asp-for="FileA" class="form-control" placeholder="FileA" />
+                <span asp-validation-for="FileA" class="text-danger" />
+            </div>
+        </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-md-10">
+            <label asp-for="FileB" class="col-sm-2 co-form-label"></label>
+            <div class="col-md-10">
+                <input asp-for="FileB" class="form-control" placeholder="FileA" />
+                <span asp-validation-for="FileB" class="text-danger" />
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <div class="col-md-10">
+            <label asp-for="StartData" class="col-sm-2 co-form-label"></label>
+            <div class="col-md-10">
+                <input asp-for="StartData" class="form-control" placeholder="FileA" />
+                <span asp-validation-for="StartData" class="text-danger" />
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-md-10">
+            <input type="submit" value="ImportResult" />
+        </div>
+    </div>
+</form>
+
+@section Scripts
+{
+    @{ await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

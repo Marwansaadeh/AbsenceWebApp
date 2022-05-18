@@ -32,12 +32,13 @@ namespace AbsenceWebApp.FileReader
                         }
                         abscenssMainList.Add(new Absence()
                         {
+                            Id = Guid.NewGuid(),
                             EmployeeId = Convert.ToInt32(mainlistReader.GetValue(0)),
                             Date = Convert.ToDateTime(mainlistReader.GetValue(1).ToString()),
                             TypeName = (mainlistReader.GetValue(2).ToString()),
                             Percentage = Convert.ToDouble(mainlistReader.GetValue(3).ToString())
 
-                        });
+                        }) ;
                     }
                 }
             }
